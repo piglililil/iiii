@@ -479,4 +479,19 @@ class BlindChessApp(App):
 
 
 if __name__ == '__main__':
-    BlindChessApp().run()
+    try:
+        BlindChessApp().run()
+    except Exception as e:
+        # Emergency logging for Android startup crashes
+        import traceback
+        import os
+        from kivy.app import App
+        try:
+            log_dir = App.get_running_app().user_data_dir if App.get_running_app() else "."
+        except:
+            log_dir = "."
+        
+        with open(os.path.join(log_dir, 'error_log.txt'), 'w') as f:
+            f.write(str(e))
+            f.write('\n')
+            f.write(traceback.format_exc())
