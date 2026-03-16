@@ -13,7 +13,7 @@ orientation = portrait
 fullscreen = 0
 
 android.minapi = 21
-android.api = 33
+android.api = 34
 android.ndk = 25b
 android.accept_sdk_license = True
 # Letting Buildozer choose best SDK/NDK for the current environment
