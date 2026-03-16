@@ -17,7 +17,7 @@ android.api = 33
 android.ndk = 25b
 android.accept_sdk_license = True
 # Letting Buildozer choose best SDK/NDK for the current environment
-android.arch = arm64-v8a
+android.archs = arm64-v8a
 android.permissions = WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
 
 [buildozer]
