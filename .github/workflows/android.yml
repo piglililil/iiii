@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -22,13 +22,13 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libssl-dev libffi-dev build-essential git openjdk-17-jdk zip unzip
+          sudo apt-get install -y libssl-dev libffi-dev build-essential git openjdk-17-jdk zip unzip libtinfo5
           pip install --upgrade pip
           pip install buildozer Cython==0.29.33
 
       - name: Build with Buildozer
         run: |
-          yes | buildozer android debug
+          buildozer android debug
         env:
           ACCEPT_SDK_LICENSE: "1"
 
@@ -37,3 +37,4 @@ jobs:
         with:
           name: BlindChess-APK
           path: bin/*.apk
+
